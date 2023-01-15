@@ -9,11 +9,11 @@ const objData = {
     message:''
 }
 const STORAGE_KEY = "feedback-form-state";
-const jsonObjData = localStorage.getItem(STORAGE_KEY);
-const parseJsonObjData = JSON.parse(jsonObjData) || {};
+let jsonObjData = localStorage.getItem(STORAGE_KEY);
+let parseJsonObjData = JSON.parse(jsonObjData)  || {};
 
 feedbackForm.addEventListener('input', storageFeedback);
-feedbackForm.addEventListener('submit', )
+feedbackForm.addEventListener('submit', onSubmitClick)
 
 function storageFeedback(e) {
    if(e.target.name === 'email') {
@@ -22,7 +22,7 @@ function storageFeedback(e) {
     if (e.target.name === 'message') {
        objData.message = e.target.value;
     }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(objData))
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(objData));
 }
 
 function fillMemoryData({email, message}) {
@@ -35,7 +35,18 @@ function fillMemoryData({email, message}) {
 }
 fillMemoryData(parseJsonObjData);
 
-
+function onSubmitClick(e) {
+    e.preventDefault();
+    objData.email = inputForm.value;
+    objData.message = textareaForm.value;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(objData));
+    jsonObjData = localStorage.getItem(STORAGE_KEY);
+    parseJsonObjData = JSON.parse(jsonObjData)  || {};
+    console.log(parseJsonObjData);
+    inputForm.value = '';
+    textareaForm.value = '';
+    localStorage.removeItem(STORAGE_KEY);
+}
 
 
 
