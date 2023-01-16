@@ -43,8 +43,4 @@ function onSubmitClick(e) {
     inputForm.value = '';
     textareaForm.value = '';
     localStorage.removeItem(STORAGE_KEY);
-}
-
-
-
-
+};
