@@ -36,13 +36,6 @@ fillMemoryData(parseJsonObjData);
 
 function onSubmitClick(e) {
     e.preventDefault();
-    objData.email = inputForm.value;
-    objData.message = textareaForm.value;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(objData));
-    jsonObjData = localStorage.getItem(STORAGE_KEY);
-    parseJsonObjData = JSON.parse(jsonObjData)  || {};
-    console.log(parseJsonObjData);
-    inputForm.value = '';
-    textareaForm.value = '';
-    localStorage.removeItem(STORAGE_KEY);
+    console.log(objData);
+    e.currentTarget.reset();
 };
