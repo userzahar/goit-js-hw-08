@@ -4,7 +4,7 @@ const inputForm = feedbackForm.elements.email;
 const textareaForm = feedbackForm.elements.message;
 // const submitBtn = document.querySelector('button');
 
-const objData = {}
+const objData = { email: '', message:'',}
 const STORAGE_KEY = "feedback-form-state";
 let jsonObjData = localStorage.getItem(STORAGE_KEY);
 let parseJsonObjData = JSON.parse(jsonObjData)  || {};
