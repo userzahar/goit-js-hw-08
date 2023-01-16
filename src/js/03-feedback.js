@@ -26,6 +26,8 @@ function fillMemoryData({email, message}) {
     if (!jsonObjData) {
         return;
     } else {
+        objData.email = email;
+        objData.message = message;
         inputForm.value = email;
         textareaForm.value = message;
     }
