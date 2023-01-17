@@ -38,4 +38,5 @@ function onSubmitClick(e) {
     e.preventDefault();
     console.log(objData);
     e.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
 };
